@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Reef';
+    src: url(../fonts/reef-bold.ttf);
+}
+
+body {
+    font-family: 'Reef';
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+.header {
+    font-size: 2.5rem;
+    padding: 20px 0 40px;
+}
+
+.main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.star {
+    padding: 0;
+}
