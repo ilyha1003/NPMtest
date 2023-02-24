@@ -5,6 +5,7 @@
 
 body {
     font-family: 'Reef';
+    background-color: #b3b3b3;
 }
 
 button {
@@ -25,4 +26,12 @@ button {
 
 .star {
     padding: 0;
+}
+
+.star-ico {
+    fill: #606060;
+}
+
+.hidden {
+    display: none;
 }
