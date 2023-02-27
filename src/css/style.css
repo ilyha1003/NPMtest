@@ -8,6 +8,10 @@ body {
     background-color: #b3b3b3;
 }
 
+ul {
+    padding: 0;
+}
+
 button {
     border: none;
     background: none;
@@ -34,4 +38,22 @@ button {
 
 .hidden {
     display: none;
+}
+
+.headlines {
+    padding-bottom: 20px;
+}
+
+.alerts {
+    pointer-events: none;
+    position: fixed;
+    max-width: 300px;
+    width: 90%;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.button {
+    padding: 5px 10px;
 }
