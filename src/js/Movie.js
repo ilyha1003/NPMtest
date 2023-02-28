@@ -39,7 +39,7 @@ class Movie {
             <span class="col-3">${rating}</span>
             <span class="col-3">${opinion}</span>
             <span class="col-1">${favorite ? '❤' : ''}</span>
-            <div class="col-3 btn-group" role="group"></div>
+            <div class="col-3 btn-group buttons" role="group"></div>
         `;
 
         li.insertAdjacentHTML('beforeend',html);
@@ -69,46 +69,16 @@ class Movie {
         const button = document.createElement('button');
         button.setAttribute('type', 'button');
         button.classList.add('button');
-        button.classList.add(`btn-${isDelete ? 'danger' : 'warning'}`);
         button.innerHTML = isDelete ? deleteIco : editIco;
 
         return button;
     }
 
-    constructor(data) {
+    constructor(id, data) {
         this.setData(data);
-        this.#id = Date.now();
+        this.#id = id;
         this.createNode();
     }
 }
 
 export default Movie;
-
-// const movieList = document.querySelector('.movie__list');
-//         const listElement = document.createElement('li');
-//         const elementTitle = document.createElement('span');
-//         const elementRating = document.createElement('span');
-//         const elementOpinion = document.createElement('span');
-//         const elementFavorite = document.createElement('span');
-//         const elementButtons = document.createElement('span');
-
-//         listElement.classList.add('row');
-//         elementTitle.classList.add('col-2');
-//         elementRating.classList.add('col-3');
-//         elementOpinion.classList.add('col-4');
-//         elementFavorite.classList.add('col-1');
-//         elementButtons.classList.add('col-2');
-
-//         elementTitle.innerText = title;
-//         elementOpinion.innerText = opinion;
-//         elementButtons.innerText = '✏️🗑️';
-
-//         if(favorite) {
-//             elementFavorite.innerText = '❤';
-//         } else {
-//             elementFavorite.innerText = '';
-//         }
-
-//         listElement.append(elementTitle, elementRating, elementOpinion, elementFavorite, elementButtons);
-
-//         movieList.prepend(listElement);

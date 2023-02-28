@@ -1,3 +1,6 @@
+import LocalStorage from "./LocalStorage";
+import Movie from "./Movie";
+
 class List {
     #movies = [];
 
@@ -6,18 +9,36 @@ class List {
         this.#movies.map((movie) => {this.node.append(movie.node)});
     }
 
+    createStorageList() {
+        const moviesList = LocalStorage.get();
+
+        moviesList.map(({ id, data }) => {
+            const movie = new Movie(id, data);
+            this.addMovie(movie);
+        })
+    }
+
+    getMovies() {
+        return this.#movies;
+    }
+
     addMovie(movie) {
         this.#movies.unshift(movie);
+        movie.deleteBtn.addEventListener('click', () => {
+            this.removeMovie(movie.getId());
+        })
         this.updateInfo();
     }
 
     removeMovie(id) {
         this.#movies = this.#movies.filter((movie) => movie.getId() !== id);
         this.updateInfo();
+        LocalStorage.set(this.getMovies());
     }
 
     constructor() {
         this.node = document.getElementById('movieList');
+        this.createStorageList();
     }
 }
 

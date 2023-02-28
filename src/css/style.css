@@ -54,6 +54,14 @@ button {
     transform: translateX(-50%);
 }
 
+.buttons {
+    display: block;
+}
+
 .button {
     padding: 5px 10px;
+}
+
+li:nth-child(2n) {
+    background-color: #aaaaaa;
 }
