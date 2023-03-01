@@ -11,8 +11,13 @@ class List {
 
     createStorageList() {
         const moviesList = LocalStorage.get();
+        const moviesListReversed = [];
+        
+        for(let i = moviesList.length - 1; i >= 0 ; i--) {
+            moviesListReversed.push(moviesList[i]);
+        }
 
-        moviesList.map(({ id, data }) => {
+        moviesListReversed.map(({ id, data }) => {
             const movie = new Movie(id, data);
             this.addMovie(movie);
         })

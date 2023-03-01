@@ -17,6 +17,10 @@ button {
     background: none;
 }
 
+.button {
+    float: right;
+}
+
 .header {
     font-size: 2.5rem;
     padding: 20px 0 40px;
@@ -33,7 +37,7 @@ button {
 }
 
 .star-ico {
-    fill: #606060;
+    fill: gray;
 }
 
 .hidden {
@@ -65,3 +69,29 @@ button {
 li:nth-child(2n) {
     background-color: #aaaaaa;
 }
+
+.edit-field {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0007;
+}
+
+.edit-field-body {
+    max-width: 500px;
+    width: 95%;
+    border-radius: 20px;
+    position: relative;
+}
+
+.close__button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+

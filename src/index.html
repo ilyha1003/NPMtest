@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
+    <link rel="shortcut icon" href="./img/app_logo.jpg" type="image/jpg">
     <link rel="stylesheet" href="./css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">   
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <script type="script" src="./js/starButtons.js"></script>
     <main class="container-md py-4">
         <section class="py-4">
             <h1 class="h1">Movies library</h1>
@@ -24,20 +26,20 @@
                     <div class="col-6">
                         <label for="add-rating" class="form-label">Movie rating</label>
                         <div class="rating" id="add-rating">
-                            <button class="star star-1" id="1star" value="0" type="button">
-                                <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-1" id="1star" value="0" type="button" onmouseover="changeButtonColor1()" onmouseout="returnButtonColor1()">
+                                <svg class="star-ico" id="firstStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
-                            <button class="star star-2" id="2star" value="0" type="button">
-                                <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-2" id="2star" value="0" type="button" onmouseover="changeButtonColor2()" onmouseout="returnButtonColor2()">
+                                <svg class="star-ico" id="secondStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
-                            <button class="star star-3" id="3star" value="0" type="button">
-                                <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-3" id="3star" value="0" type="button" onmouseover="changeButtonColor3()" onmouseout="returnButtonColor3()">
+                                <svg class="star-ico" id="thirdStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
-                            <button class="star star-4" id="4star" value="0" type="button">
-                                <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-4" id="4star" value="0" type="button" onmouseover="changeButtonColor4()" onmouseout="returnButtonColor4()">
+                                <svg class="star-ico" id="fourthStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
-                            <button class="star star-5" id="5star" value="0" type="button">
-                                <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-5" id="5star" value="0" type="button" onmouseover="changeButtonColor5()" onmouseout="returnButtonColor5()">
+                                <svg class="star-ico" id="fifthStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
                         </div>
                     </div>
@@ -73,6 +75,56 @@
             </ul>
         </section>
     </main>
+    <!-- <section class="edit-field" id="editField">
+        <div class="edit-field-body bg-light p-4">
+            <section class="py-4">
+                <button class="btn btn-secondary close__button" id="edit-field-cancel">Close</button>
+                <form id="edit-form" class="py-4">
+                    <div class="row py-2">
+                        <div class="col">
+                            <label for="edit-title" class="form-label">Movie title</label>
+                            <input type="text" class="form-control" id="edit-title">
+                        </div>
+                        <div class="col">
+                            <label for="add-rating" class="form-label">Movie rating</label>
+                            <div class="rating" id="add-rating">
+                                <button class="star star-1" id="1star" value="0" type="button">
+                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                                </button>
+                                <button class="star star-2" id="2star" value="0" type="button">
+                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                                </button>
+                                <button class="star star-3" id="3star" value="0" type="button">
+                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                                </button>
+                                <button class="star star-4" id="4star" value="0" type="button">
+                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                                </button>
+                                <button class="star star-5" id="5star" value="0" type="button">
+                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col">
+                            <label for="edit-opinion" class="form-label">Your opinion</label>
+                            <textarea class="form-control" id="edit-opinion" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-6">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+                        <div class="col-6">
+                            <input type="checkbox" class="form-check-input" id="favorites">
+                            <label class="form-check-label" for="favorites">Add to favorites</label>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </section> -->
     <section class="alerts">
         <div class="alert hidden" role="alert" id="alert"></div>
     </section>

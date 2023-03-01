@@ -3,11 +3,13 @@ import Alert from './Alert';
 import Movie from './Movie';
 import List from './List';
 import LocalStorage from './LocalStorage';
+import EditField from './EditField';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = new Form();
     const alert = new Alert();
     const list = new List();
+    const editField = new EditField;
 
     const onAdd = () => {
         try {
@@ -26,4 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         onAdd();
     })
+
+
+    
 })
+
+
+function changeButtonColor() {
+    document.getElementById('firstStar').style.fill = "gold";
+}
+
+const returnButtonColor = () => {
+    document.getElementById('firstStar').style.fill = "gray";
+}
