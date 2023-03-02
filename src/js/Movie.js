@@ -14,8 +14,23 @@ class Movie {
         return this.#id;
     }
 
+    starIcon() {
+        return `<svg class="star-ico" id="1Star" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>`;
+    }
+
+    createStarElement() {
+        const starElement = document.createElement('span');
+        starElement.style.display = 'inline-flex';
+        starElement.style.height = '30px';
+        starElement.style.width = '30px';
+        starElement.insertAdjacentHTML('afterbegin', this.starIcon());
+
+        return starElement;
+    }
+
     createNode() {
         const {title, star1, star2, star3, star4, star5, opinion, favorite} = this.getData();
+        
         let rating = '0';
         if(star1 === '1') {
             rating = '1';
@@ -36,7 +51,7 @@ class Movie {
         li.classList.add('row');
         const html = `
             <span class="col-2">${title}</span>
-            <span class="col-3">${rating}</span>
+            <span class="col-3 rating-field"></span>
             <span class="col-3">${opinion}</span>
             <span class="col-1">${favorite ? '❤' : ''}</span>
             <div class="col-3 buttons" role="group"></div>
@@ -47,7 +62,15 @@ class Movie {
         const editButton = this.createButtons(false);
         const deleteButton = this.createButtons(true);
 
+        const ratingField = li.querySelector('.rating-field');
+        for(let i = 1; i <= rating; i++) {
+            ratingField.append(this.createStarElement());
+        }
+        
+
         buttonGroup.append(deleteButton, editButton);
+
+        console.log(this.createStarElement());
         
         this.deleteBtn = deleteButton;
         this.editDtn = editButton;

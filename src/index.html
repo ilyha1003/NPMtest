@@ -23,23 +23,23 @@
                         <label for="add-title" class="form-label">Movie title</label>
                         <input type="text" class="form-control" id="add-title" placeholder="Enter movie name">
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" id="ratingStars">
                         <label for="add-rating" class="form-label">Movie rating</label>
                         <div class="rating" id="add-rating">
-                            <button class="star star-1" id="1star" value="0" type="button" onmouseover="changeButtonColor1()" onmouseout="returnButtonColor1()">
-                                <svg class="star-ico" id="firstStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-1" id="star1" value="0" type="button" > 
+                                <svg class="star-ico" id="1Star" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
-                            <button class="star star-2" id="2star" value="0" type="button" onmouseover="changeButtonColor2()" onmouseout="returnButtonColor2()">
-                                <svg class="star-ico" id="secondStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-2" id="star2" value="0" type="button" >
+                                <svg class="star-ico" id="2Star" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
-                            <button class="star star-3" id="3star" value="0" type="button" onmouseover="changeButtonColor3()" onmouseout="returnButtonColor3()">
-                                <svg class="star-ico" id="thirdStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-3" id="star3" value="0" type="button" >
+                                <svg class="star-ico" id="3Star" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
-                            <button class="star star-4" id="4star" value="0" type="button" onmouseover="changeButtonColor4()" onmouseout="returnButtonColor4()">
-                                <svg class="star-ico" id="fourthStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-4" id="star4" value="0" type="button" >
+                                <svg class="star-ico" id="4Star" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
-                            <button class="star star-5" id="5star" value="0" type="button" onmouseover="changeButtonColor5()" onmouseout="returnButtonColor5()">
-                                <svg class="star-ico" id="fifthStar" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
+                            <button class="star star-5" id="star5" value="0" type="button" >
+                                <svg class="star-ico" id="5Star" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
                             </button>
                         </div>
                     </div>
@@ -51,10 +51,10 @@
                     </div>
                 </div>
                 <div class="row py-2">
-                    <div class="col-4">
+                    <div class="col-5">
                         <button class="btn btn-primary" type="submit">Add movie</button>
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="favorites">
                             <label class="form-check-label" for="favorites">Add to favorites</label>
@@ -131,3 +131,11 @@
     <script type="module" src="./js/app.js"></script>
 </body>
 </html>
+
+<!-- onmouseover="changeButtonColor1()" onmouseout="returnButtonColor1()"
+onmouseover="changeButtonColor2()" onmouseout="returnButtonColor2()"
+onmouseover="changeButtonColor3()" onmouseout="returnButtonColor3()"
+onmouseover="changeButtonColor4()" onmouseout="returnButtonColor4()"
+onmouseover="changeButtonColor5()" onmouseout="returnButtonColor5()" 
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>-->

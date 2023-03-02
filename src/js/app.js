@@ -22,22 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch ({ message }) {
             alert.showAlert(message, true)
         }
+
     }
+
+    form.getRating();    
+
+    // form.node[1].addEventListener('click', () => {
+    //     form.node[1].value = '1';
+    //     form.node[2].value = '0';
+    //     form.node[3].value = '0';
+    //     form.node[4].value = '0';
+    //     form.node[5].value = '0';
+    //     console.log(form.node[1]);
+    //     document.getElementById('firstStar').style.fill = 'gold';
+    // })
 
     form.node.addEventListener('submit', (e) => {
         e.preventDefault();
         onAdd();
     })
-
-
-    
 })
-
-
-function changeButtonColor() {
-    document.getElementById('firstStar').style.fill = "gold";
-}
-
-const returnButtonColor = () => {
-    document.getElementById('firstStar').style.fill = "gray";
-}

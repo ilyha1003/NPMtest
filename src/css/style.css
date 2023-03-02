@@ -33,11 +33,17 @@ button {
 }
 
 .star {
-    padding: 0;
+    padding: 5px 3px;
+}
+
+.star-2, .star-3, .star-4, .star-5 {
+    margin-left: -4px;
 }
 
 .star-ico {
     fill: gray;
+    pointer-events: none;
+    color: rgb(255, 237, 134);
 }
 
 .hidden {
@@ -94,4 +100,3 @@ li:nth-child(2n) {
     top: 20px;
     right: 20px;
 }
-
