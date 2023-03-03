@@ -1,7 +1,7 @@
 class LocalStorage {
     static set(movies) {
         const movieData = movies.map((movie) => ({ id: movie.getId(), data: movie.getData() }));
-        console.log(movieData);
+        // console.log(movieData);
         localStorage.setItem('movies', JSON.stringify(movieData));
     }
 

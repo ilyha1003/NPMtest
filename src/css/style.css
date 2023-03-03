@@ -32,10 +32,6 @@ button {
     padding: 30px;
 }
 
-.star {
-    padding: 5px 3px;
-}
-
 .star-2, .star-3, .star-4, .star-5 {
     margin-left: -4px;
 }
@@ -99,4 +95,56 @@ li:nth-child(2n) {
     position: absolute;
     top: 20px;
     right: 20px;
+}
+
+
+
+
+
+.stars {
+	cursor: pointer;
+}
+
+.stars label {
+    display: inline;
+}
+
+.star {
+	color: #747474;
+    padding: 5px 2px;
+    pointer-events: none;
+}
+
+.star-gold {
+    color: gold;
+}
+
+.rate, .movie-rate {
+	height: 50px;
+	margin-left: -5px;
+	font-size: 25px;
+	position: relative;
+	cursor: pointer;
+}
+
+.rate input[type="radio"], .movie-rate input[type="radio"] {
+	opacity: 0;
+	position: absolute;
+    pointer-events: all;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.star-over::after {
+	font-family: 'Font Awesome 5 Free';
+    font-weight: 900; 
+	font-size: 22px;
+	content: "\f005";
+	display: inline-block;
+	color: rgb(255, 238, 139);
+	z-index: 1;
+	position: absolute;
+	top: 6px;
+	left: 4px;
 }

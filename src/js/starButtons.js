@@ -1,61 +1,24 @@
-function changeButtonColor1() {
-    document.getElementById('firstStar').style.fill = "gold";
-}
+$(function() {
 
-function returnButtonColor1() {
-    document.getElementById('firstStar').style.fill = "gray";
-}
+    $(document).on({
+        mouseover: function() {
+            $(this).find('.far').addClass('star-over');
+            $(this).prevAll().find('.far').addClass('star-over');
+        },
+        mouseleave: function() {
+            $(this).find('.far').removeClass('star-over');
+            $(this).prevAll().find('.far').removeClass('star-over');
+        }
+    }, '.rate');
 
-function changeButtonColor2() {
-    document.getElementById('firstStar').style.fill = "gold";
-    document.getElementById('secondStar').style.fill = "gold";
-}
 
-function returnButtonColor2() {
-    document.getElementById('firstStar').style.fill = "gray";
-    document.getElementById('secondStar').style.fill = "gray";
-}
-
-function changeButtonColor3() {
-    document.getElementById('firstStar').style.fill = "gold";
-    document.getElementById('secondStar').style.fill = "gold";
-    document.getElementById('thirdStar').style.fill = "gold";
-}
-
-function returnButtonColor3() {
-    document.getElementById('firstStar').style.fill = "gray";
-    document.getElementById('secondStar').style.fill = "gray";
-    document.getElementById('thirdStar').style.fill = "gray";
-}
-
-function changeButtonColor4() {
-    document.getElementById('firstStar').style.fill = "gold";
-    document.getElementById('secondStar').style.fill = "gold";
-    document.getElementById('thirdStar').style.fill = "gold";
-    document.getElementById('fourthStar').style.fill = "gold";
-
-}
-
-function returnButtonColor4() {
-    document.getElementById('firstStar').style.fill = "gray";
-    document.getElementById('secondStar').style.fill = "gray";
-    document.getElementById('thirdStar').style.fill = "gray";
-    document.getElementById('fourthStar').style.fill = "gray";
-}
-
-function changeButtonColor5() {
-    document.getElementById('firstStar').style.fill = "gold";
-    document.getElementById('secondStar').style.fill = "gold";
-    document.getElementById('thirdStar').style.fill = "gold";
-    document.getElementById('fourthStar').style.fill = "gold";
-    document.getElementById('fifthStar').style.fill = "gold";
-
-}
-
-function returnButtonColor5() {
-    document.getElementById('firstStar').style.fill = "gray";
-    document.getElementById('secondStar').style.fill = "gray";
-    document.getElementById('thirdStar').style.fill = "gray";
-    document.getElementById('fourthStar').style.fill = "gray";
-    document.getElementById('fifthStar').style.fill = "gray";
-}
+    $(document).on('click', '.rate', function() {
+        if ( !$(this).find('.star').hasClass('rate-active') ) {
+            $(this).siblings().find('.star').addClass('far').removeClass('fas star-gold');
+            $(this).find('.star').addClass('fas star-gold').removeClass('far star-over');
+            $(this).prevAll().find('.star').addClass('fas star-gold').removeClass('far star-over');
+        } else {
+            console.log('has');
+        }
+    });
+});

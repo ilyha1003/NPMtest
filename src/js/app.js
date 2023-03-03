@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const onAdd = () => {
         try {
             const data = form.getInfo();
+            // console.log(data);
             const movie = new Movie(Date.now(), data);
 
             list.addMovie(movie);
@@ -25,19 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    form.getRating();    
-
-    // form.node[1].addEventListener('click', () => {
-    //     form.node[1].value = '1';
-    //     form.node[2].value = '0';
-    //     form.node[3].value = '0';
-    //     form.node[4].value = '0';
-    //     form.node[5].value = '0';
-    //     console.log(form.node[1]);
-    //     document.getElementById('firstStar').style.fill = 'gold';
-    // })
+    form.getIndex();   
+    form.setRatingValue();
 
     form.node.addEventListener('submit', (e) => {
+        document.querySelector('.form-control').focus();
+        
         e.preventDefault();
         onAdd();
     })

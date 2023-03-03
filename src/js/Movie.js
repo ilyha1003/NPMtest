@@ -14,44 +14,87 @@ class Movie {
         return this.#id;
     }
 
-    starIcon() {
-        return `<svg class="star-ico" id="1Star" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>`;
-    }
-
-    createStarElement() {
-        const starElement = document.createElement('span');
-        starElement.style.display = 'inline-flex';
-        starElement.style.height = '30px';
-        starElement.style.width = '30px';
-        starElement.insertAdjacentHTML('afterbegin', this.starIcon());
-
-        return starElement;
+    createMovieRating(rating) {
+        switch(rating) {
+            case '0':
+                break;
+            case '1':
+                this.node.querySelectorAll('.star')[0].classList.add('fas');
+                this.node.querySelectorAll('.star')[0].classList.add('star-gold');
+                this.node.querySelectorAll('.star')[0].classList.remove('far');
+                break;
+            case '2':
+                for(let i = 0; i < rating; i++) {
+                    this.node.querySelectorAll('.star')[i].classList.add('fas');
+                    this.node.querySelectorAll('.star')[i].classList.add('star-gold');
+                    this.node.querySelectorAll('.star')[i].classList.remove('far');
+                }
+                break;
+            case '3':
+                for(let i = 0; i < rating; i++) {
+                    this.node.querySelectorAll('.star')[i].classList.add('fas');
+                    this.node.querySelectorAll('.star')[i].classList.add('star-gold');
+                    this.node.querySelectorAll('.star')[i].classList.remove('far');
+                }
+                break;
+            case '4':
+                for(let i = 0; i < rating; i++) {
+                    this.node.querySelectorAll('.star')[i].classList.add('fas');
+                    this.node.querySelectorAll('.star')[i].classList.add('star-gold');
+                    this.node.querySelectorAll('.star')[i].classList.remove('far');
+                }
+                break;
+            case '5':
+                for(let i = 0; i < rating; i++) {
+                    this.node.querySelectorAll('.star')[i].classList.add('fas');
+                    this.node.querySelectorAll('.star')[i].classList.add('star-gold');
+                    this.node.querySelectorAll('.star')[i].classList.remove('far');
+                }
+                break;
+        }
     }
 
     createNode() {
         const {title, star1, star2, star3, star4, star5, opinion, favorite} = this.getData();
         
         let rating = '0';
-        if(star1 === '1') {
-            rating = '1';
-        }
-        if(star2 === '1') {
-            rating = '2';
-        }
-        if(star3 === '1') {
-            rating = '3';
-        }
-        if(star4 === '1') {
-            rating = '4';
-        }
-        if(star5 === '1') {
-            rating = '5';
-        }
+        if(star1 === '1') rating = '1';
+        if(star2 === '1') rating = '2';
+        if(star3 === '1') rating = '3';
+        if(star4 === '1') rating = '4';
+        if(star5 === '1') rating = '5';
+
+        console.log(rating);
+        
+
         const li = document.createElement('li');
         li.classList.add('row');
         const html = `
             <span class="col-2">${title}</span>
-            <span class="col-3 rating-field"></span>
+            <span class="col-3 rating-field">
+                <div class="stars" id="add-rating">
+                    <label class="movie-rate">
+                        <input type="radio" name="radio1" id="star1" value="0">
+                        <i class="far fa-star 1star star"></i>
+                    </label>
+                    <label class="movie-rate">
+                        <input type="radio" name="radio1" id="star2" value="0">
+                        <i class="far fa-star 2star star"></i>
+                    </label>
+                    <label class="movie-rate">
+                        <input type="radio" name="radio1" id="star3" value="0">
+                        <i class="far fa-star 3star star"></i>
+                    </label>
+                    <label class="movie-rate">
+                        <input type="radio" name="radio1" id="star4" value="0">
+                        <i class="far fa-star 4star star"></i>
+                    </label>
+                    <label class="movie-rate">
+                        <input type="radio" name="radio1" id="star5" value="0">
+                        <i class="far fa-star 5star star"></i>
+                    </label>
+                </div>
+            </span>
             <span class="col-3">${opinion}</span>
             <span class="col-1">${favorite ? '❤' : ''}</span>
             <div class="col-3 buttons" role="group"></div>
@@ -60,22 +103,15 @@ class Movie {
         li.insertAdjacentHTML('beforeend',html);
         const buttonGroup = li.querySelector('.buttons');
         const editButton = this.createButtons(false);
-        const deleteButton = this.createButtons(true);
-
-        const ratingField = li.querySelector('.rating-field');
-        for(let i = 1; i <= rating; i++) {
-            ratingField.append(this.createStarElement());
-        }
-        
+        const deleteButton = this.createButtons(true);        
 
         buttonGroup.append(deleteButton, editButton);
 
-        console.log(this.createStarElement());
-        
         this.deleteBtn = deleteButton;
         this.editDtn = editButton;
-        
+
         this.node = li;
+        this.createMovieRating(rating);
     }
 
     createButtons(isDelete) {
