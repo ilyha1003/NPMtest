@@ -14,42 +14,32 @@ class Movie {
         return this.#id;
     }
 
+    movieRatingStarFilter(rating) {
+        for(let i = 0; i < rating; i++) {
+            this.node.querySelectorAll('.star')[i].classList.add('fas');
+            this.node.querySelectorAll('.star')[i].classList.add('star-gold');
+            this.node.querySelectorAll('.star')[i].classList.remove('far');
+        }
+    }
+
     createMovieRating(rating) {
         switch(rating) {
             case '0':
                 break;
             case '1':
-                this.node.querySelectorAll('.star')[0].classList.add('fas');
-                this.node.querySelectorAll('.star')[0].classList.add('star-gold');
-                this.node.querySelectorAll('.star')[0].classList.remove('far');
+                this.movieRatingStarFilter(rating);
                 break;
             case '2':
-                for(let i = 0; i < rating; i++) {
-                    this.node.querySelectorAll('.star')[i].classList.add('fas');
-                    this.node.querySelectorAll('.star')[i].classList.add('star-gold');
-                    this.node.querySelectorAll('.star')[i].classList.remove('far');
-                }
+                this.movieRatingStarFilter(rating);
                 break;
             case '3':
-                for(let i = 0; i < rating; i++) {
-                    this.node.querySelectorAll('.star')[i].classList.add('fas');
-                    this.node.querySelectorAll('.star')[i].classList.add('star-gold');
-                    this.node.querySelectorAll('.star')[i].classList.remove('far');
-                }
+                this.movieRatingStarFilter(rating);
                 break;
             case '4':
-                for(let i = 0; i < rating; i++) {
-                    this.node.querySelectorAll('.star')[i].classList.add('fas');
-                    this.node.querySelectorAll('.star')[i].classList.add('star-gold');
-                    this.node.querySelectorAll('.star')[i].classList.remove('far');
-                }
+                this.movieRatingStarFilter(rating);
                 break;
             case '5':
-                for(let i = 0; i < rating; i++) {
-                    this.node.querySelectorAll('.star')[i].classList.add('fas');
-                    this.node.querySelectorAll('.star')[i].classList.add('star-gold');
-                    this.node.querySelectorAll('.star')[i].classList.remove('far');
-                }
+                this.movieRatingStarFilter(rating);
                 break;
         }
     }
