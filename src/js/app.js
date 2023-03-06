@@ -3,13 +3,16 @@ import Alert from './Alert';
 import Movie from './Movie';
 import List from './List';
 import LocalStorage from './LocalStorage';
-import EditField from './EditField';
+import WindowWidth from './WindowWidth';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = new Form();
     const alert = new Alert();
     const list = new List();
-    const editField = new EditField;
+
+    const width = window.matchMedia("(max-width: 995px)");
+
+    const appWidth = new WindowWidth(width);
 
     const onAdd = () => {
         try {

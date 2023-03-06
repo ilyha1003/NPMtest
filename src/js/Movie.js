@@ -44,9 +44,7 @@ class Movie {
         }
     }
 
-    createNode() {
-        const {title, star1, star2, star3, star4, star5, opinion, favorite} = this.getData();
-        
+    ratingNumber(star1, star2, star3, star4, star5) {
         let rating = '0';
         if(star1 === '1') rating = '1';
         if(star2 === '1') rating = '2';
@@ -54,9 +52,12 @@ class Movie {
         if(star4 === '1') rating = '4';
         if(star5 === '1') rating = '5';
 
-        console.log(rating);
-        
+        return rating;
+    }
 
+    createNode() {
+        const {title, star1, star2, star3, star4, star5, opinion, favorite} = this.getData();
+        
         const li = document.createElement('li');
         li.classList.add('row');
         const html = `
@@ -98,10 +99,10 @@ class Movie {
         buttonGroup.append(deleteButton, editButton);
 
         this.deleteBtn = deleteButton;
-        this.editDtn = editButton;
+        this.editBtn = editButton;
 
         this.node = li;
-        this.createMovieRating(rating);
+        this.createMovieRating(this.ratingNumber(star1, star2, star3, star4, star5));
     }
 
     createButtons(isDelete) {

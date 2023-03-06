@@ -93,8 +93,8 @@ li:nth-child(2n) {
 
 .close__button {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
 }
 
 
@@ -147,4 +147,8 @@ li:nth-child(2n) {
 	position: absolute;
 	top: 6px;
 	left: 4px;
+}
+
+.edit-field.hidden {
+    display: none;
 }

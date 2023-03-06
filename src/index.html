@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <main class="container-md py-4">
+    <main class="container-sm py-4">
         <section class="py-4">
             <h1 class="h1">Movies library</h1>
         </section>
@@ -81,8 +81,8 @@
             </ul>
         </section>
     </main>
-    <!-- <section class="edit-field" id="editField">
-        <div class="edit-field-body bg-light p-4">
+    <section class="edit-field hidden" id="editField">
+        <div class="edit-field-body bg-light py-4 px-3">
             <section class="py-4">
                 <button class="btn btn-secondary close__button" id="edit-field-cancel">Close</button>
                 <form id="edit-form" class="py-4">
@@ -91,24 +91,29 @@
                             <label for="edit-title" class="form-label">Movie title</label>
                             <input type="text" class="form-control" id="edit-title">
                         </div>
-                        <div class="col">
+                        <div class="col" id="ratingStars">
                             <label for="add-rating" class="form-label">Movie rating</label>
-                            <div class="rating" id="add-rating">
-                                <button class="star star-1" id="1star" value="0" type="button">
-                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
-                                </button>
-                                <button class="star star-2" id="2star" value="0" type="button">
-                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
-                                </button>
-                                <button class="star star-3" id="3star" value="0" type="button">
-                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
-                                </button>
-                                <button class="star star-4" id="4star" value="0" type="button">
-                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
-                                </button>
-                                <button class="star star-5" id="5star" value="0" type="button">
-                                    <svg class="star-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>
-                                </button>
+                            <div class="stars" id="add-rating">
+                                <label class="rate">
+                                    <input class="input-rating" type="radio" name="radio1" id="star1" value="0">
+                                    <i class="far fa-star star one-star"></i>
+                                </label>
+                                <label class="rate">
+                                    <input class="input-rating" type="radio" name="radio1" id="star2" value="0">
+                                    <i class="far fa-star star two-star"></i>
+                                </label>
+                                <label class="rate">
+                                    <input class="input-rating" type="radio" name="radio1" id="star3" value="0">
+                                    <i class="far fa-star star three-star"></i>
+                                </label>
+                                <label class="rate">
+                                    <input class="input-rating" type="radio" name="radio1" id="star4" value="0">
+                                    <i class="far fa-star star four-star"></i>
+                                </label>
+                                <label class="rate">
+                                    <input class="input-rating" type="radio" name="radio1" id="star5" value="0">
+                                    <i class="far fa-star star five-star"></i>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -130,7 +135,7 @@
                 </form>
             </section>
         </div>
-    </section> -->
+    </section>
     <section class="alerts">
         <div class="alert hidden" role="alert" id="alert"></div>
     </section>
@@ -138,11 +143,3 @@
     <script type="module" src="./js/app.js"></script>
 </body>
 </html>
-
-<!-- onmouseover="changeButtonColor1()" onmouseout="returnButtonColor1()"
-onmouseover="changeButtonColor2()" onmouseout="returnButtonColor2()"
-onmouseover="changeButtonColor3()" onmouseout="returnButtonColor3()"
-onmouseover="changeButtonColor4()" onmouseout="returnButtonColor4()"
-onmouseover="changeButtonColor5()" onmouseout="returnButtonColor5()" 
-
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 5.173 2.335 4.817 5.305.732-3.861 3.71.942 5.27L12 17.178l-4.721 2.525.942-5.27-3.861-3.71 5.305-.733L12 5.173zm0-4.586L8.332 8.155 0 9.306l6.064 5.828-1.48 8.279L12 19.446l7.416 3.966-1.48-8.279L24 9.306l-8.332-1.15L12 .587z"/></svg>-->

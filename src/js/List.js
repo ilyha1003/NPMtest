@@ -1,5 +1,6 @@
 import LocalStorage from "./LocalStorage";
 import Movie from "./Movie";
+import EditField from './EditField';
 
 class List {
     #movies = [];
@@ -32,6 +33,9 @@ class List {
         movie.deleteBtn.addEventListener('click', () => {
             this.removeMovie(movie.getId());
         })
+        movie.editBtn.addEventListener('click', () => {
+            this.editField.showEditField(movie);
+        })
         this.updateInfo();
     }
 
@@ -42,6 +46,7 @@ class List {
     }
 
     constructor() {
+        this.editField = new EditField();
         this.node = document.getElementById('movieList');
         this.createStorageList();
     }
