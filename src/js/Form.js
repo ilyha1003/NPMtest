@@ -1,5 +1,3 @@
-import { map } from "jquery";
-
 class Form {
     clear() {
         this.node[0].value = '';
@@ -49,13 +47,6 @@ class Form {
                 }
                 this.node[index].value = 1;
             }
-        })
-    }
-
-    getIndex() {
-        this.node.addEventListener('click', ({ target }) => {
-            let index = [...this.node].indexOf(target);
-            // console.log(index, target);
         })
     }
 

@@ -35,6 +35,7 @@ class List {
         })
         movie.editBtn.addEventListener('click', () => {
             this.editField.showEditField(movie);
+            this.editField.editRatingValue();
         })
         this.updateInfo();
     }

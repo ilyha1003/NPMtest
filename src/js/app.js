@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    form.getIndex();   
     form.setRatingValue();
 
     form.node.addEventListener('submit', (e) => {
