@@ -1,6 +1,9 @@
+import Alert from './Alert';
+
 class EditField {
     showEditField(movie) {
         this.node.classList.remove('hidden');
+        this.movie = movie;
         this.setEditInfo(movie);
     }
 
@@ -49,6 +52,7 @@ class EditField {
             opinion: this.form[6].value,
             favorite: this.form[8].checked
         };
+        
         return outputData;
     }
 
@@ -67,16 +71,23 @@ class EditField {
     constructor() {
         this.node = document.getElementById('editField');
         this.form = document.getElementById('edit-form');
+        this.alert = new Alert();
         this.cancelBtn = document.getElementById('edit-field-cancel');
         this.cancelBtn.addEventListener('click', () => {
             this.hideEditField();
         })
-        this.saveBtn = document.getElementById('edit-field-save');
-        this.saveBtn.addEventListener('click', (e) => {
+        this.form.addEventListener('submit', (e) => {
             e.preventDefault();
+            try {
+                this.movie.setData(this.outputEditData());
+                this.hideEditField();
+                this.alert.showAlert("Movie was successfully saved!");
+            } catch({ message }) {
+                this.alert.showAlert(message, true);
+            }
             console.log(this.outputEditData());
         })
-        // console.log(this);
+        console.log(this);
     }
 }
 
