@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const list = new List();
 
     const width = window.matchMedia("(max-width: 995px)");
-
     const appWidth = new WindowWidth(width);
 
     const onAdd = () => {

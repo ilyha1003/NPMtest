@@ -52,7 +52,6 @@ class Form {
 
     constructor() {
         this.node = document.getElementById('form');
-        // console.log(this);
     }
 }
 

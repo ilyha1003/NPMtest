@@ -8,6 +8,7 @@ class LocalStorage {
     static get() {
         return JSON.parse(localStorage.getItem('movies') ?? '[]');
     }
+    
 }
 
 export default LocalStorage;

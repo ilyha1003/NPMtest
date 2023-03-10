@@ -1,4 +1,6 @@
 import Alert from './Alert';
+import List from './List';
+import LocalStorage from './LocalStorage';
 
 class EditField {
     showEditField(movie) {
@@ -52,8 +54,12 @@ class EditField {
             opinion: this.form[6].value,
             favorite: this.form[8].checked
         };
-        
-        return outputData;
+
+        if(!outputData.title) {
+            throw new Error("You can't save movie without title!");
+        } else {
+            return outputData;
+        }
     }
 
     editRatingValue() {
@@ -68,6 +74,11 @@ class EditField {
         })
     }
 
+    updateEditedList() {
+        let list = new List();
+        LocalStorage.set(list.getMovies());
+    }
+
     constructor() {
         this.node = document.getElementById('editField');
         this.form = document.getElementById('edit-form');
@@ -79,13 +90,14 @@ class EditField {
         this.form.addEventListener('submit', (e) => {
             e.preventDefault();
             try {
-                this.movie.setData(this.outputEditData());
+                this.movie.setEditData(this.outputEditData());
                 this.hideEditField();
+                // const list = new List();
+                // console.log(list.node.childNodes);
                 this.alert.showAlert("Movie was successfully saved!");
             } catch({ message }) {
                 this.alert.showAlert(message, true);
             }
-            console.log(this.outputEditData());
         })
         console.log(this);
     }

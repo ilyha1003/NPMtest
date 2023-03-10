@@ -7,7 +7,10 @@ class List {
 
     updateInfo() {
         this.node.innerHTML = '';
-        this.#movies.map((movie) => {this.node.append(movie.node)});
+        this.#movies.map((movie) => {
+            this.node.append(movie.node)
+        });
+        console.log('111');
     }
 
     createStorageList() {

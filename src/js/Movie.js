@@ -1,3 +1,5 @@
+import LocalStorage from './LocalStorage';
+
 class Movie {
     #data = {};
     #id = null;
@@ -5,6 +7,22 @@ class Movie {
     setData(data) {
         this.#data = data;
     };
+
+    setEditData(data) {
+        this.#data = data;
+
+        this.node.querySelector('.movie-rating').innerHTML = data.title;
+        this.node.querySelector('#star1').value = data.star1;
+        this.node.querySelector('#star2').value = data.star2;
+        this.node.querySelector('#star3').value = data.star3;
+        this.node.querySelector('#star4').value = data.star4;
+        this.node.querySelector('#star5').value = data.star5;
+        this.node.querySelector('.movie-opinion').innerHTML = data.opinion;
+        this.node.querySelector('.movie-favorite').innerHTML = data.favorite ? '❤' : '';
+
+        this.createMovieRating(this.ratingNumber(data.star1, data.star2, data.star3, data.star4, data.star5));
+        
+    }
 
     getData() {
         return this.#data;
@@ -15,6 +33,11 @@ class Movie {
     }
 
     movieRatingStarFilter(rating) {
+        for(let i = 0; i < 5; i++) {
+            this.node.querySelectorAll('.star')[i].classList.remove('fas');
+            this.node.querySelectorAll('.star')[i].classList.remove('star-gold');
+            this.node.querySelectorAll('.star')[i].classList.add('far');
+        }
         for(let i = 0; i < rating; i++) {
             this.node.querySelectorAll('.star')[i].classList.add('fas');
             this.node.querySelectorAll('.star')[i].classList.add('star-gold');
@@ -61,7 +84,7 @@ class Movie {
         const li = document.createElement('li');
         li.classList.add('row');
         const html = `
-            <span class="col-2">${title}</span>
+            <span class="col-2 movie-rating">${title}</span>
             <span class="col-3 rating-field">
                 <div class="stars" id="add-rating">
                     <label class="movie-rate">
@@ -86,8 +109,8 @@ class Movie {
                     </label>
                 </div>
             </span>
-            <span class="col-3">${opinion}</span>
-            <span class="col-1">${favorite ? '❤' : ''}</span>
+            <span class="col-3 movie-opinion">${opinion}</span>
+            <span class="col-1 movie-favorite">${favorite ? '❤' : ''}</span>
             <div class="col-3 buttons" role="group"></div>
         `;
 
