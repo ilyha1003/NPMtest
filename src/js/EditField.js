@@ -75,8 +75,8 @@ class EditField {
     }
 
     updateEditedList() {
-        let list = new List();
-        LocalStorage.set(list.getMovies());
+        const list = new List();
+        console.log(list.getMovies());
     }
 
     constructor() {
@@ -92,14 +92,12 @@ class EditField {
             try {
                 this.movie.setEditData(this.outputEditData());
                 this.hideEditField();
-                // const list = new List();
-                // console.log(list.node.childNodes);
                 this.alert.showAlert("Movie was successfully saved!");
+                LocalStorage.edit(this.movie.getId());
             } catch({ message }) {
                 this.alert.showAlert(message, true);
             }
         })
-        console.log(this);
     }
 }
 

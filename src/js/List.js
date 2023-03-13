@@ -10,7 +10,6 @@ class List {
         this.#movies.map((movie) => {
             this.node.append(movie.node)
         });
-        console.log('111');
     }
 
     createStorageList() {

@@ -4,11 +4,13 @@ import Movie from './Movie';
 import List from './List';
 import LocalStorage from './LocalStorage';
 import WindowWidth from './WindowWidth';
+import EditField from './EditField';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = new Form();
     const alert = new Alert();
     const list = new List();
+    // const editField = new EditField();
 
     const width = window.matchMedia("(max-width: 995px)");
     const appWidth = new WindowWidth(width);
@@ -25,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch ({ message }) {
             alert.showAlert(message, true)
         }
-
     }
 
     form.setRatingValue();
