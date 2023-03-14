@@ -50,6 +50,13 @@ class List {
 
     constructor() {
         this.editField = new EditField();
+        this.editField.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.editField.movie.setEditData(this.editField.outputEditData());
+            this.editField.hideEditField();
+            this.updateInfo();
+            LocalStorage.set(this.getMovies());
+        })
         this.node = document.getElementById('movieList');
         this.createStorageList();
     }

@@ -28,7 +28,6 @@ class EditField {
 
     setEditInfo(movie) {
         const { title, star1, star2, star3, star4, star5, opinion, favorite } = movie.getData();
-        console.log({title, star1, star2, star3, star4, star5, opinion, favorite});
         this.form[0].value = title;
         this.form[1].value = star1;
         this.form[2].value = star2;
@@ -74,29 +73,13 @@ class EditField {
         })
     }
 
-    updateEditedList() {
-        const list = new List();
-        console.log(list.getMovies());
-    }
-
     constructor() {
+        this.alert = new Alert();
         this.node = document.getElementById('editField');
         this.form = document.getElementById('edit-form');
-        this.alert = new Alert();
         this.cancelBtn = document.getElementById('edit-field-cancel');
         this.cancelBtn.addEventListener('click', () => {
             this.hideEditField();
-        })
-        this.form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            try {
-                this.movie.setEditData(this.outputEditData());
-                this.hideEditField();
-                this.alert.showAlert("Movie was successfully saved!");
-                LocalStorage.edit(this.movie.getId());
-            } catch({ message }) {
-                this.alert.showAlert(message, true);
-            }
         })
     }
 }

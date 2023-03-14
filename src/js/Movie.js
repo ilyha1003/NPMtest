@@ -1,5 +1,3 @@
-import LocalStorage from './LocalStorage';
-
 class Movie {
     #data = {};
     #id = null;
@@ -83,6 +81,7 @@ class Movie {
         
         const li = document.createElement('li');
         li.classList.add('row');
+        li.classList.add('py-2');
         const html = `
             <span class="col-2 movie-rating">${title}</span>
             <span class="col-3 rating-field">

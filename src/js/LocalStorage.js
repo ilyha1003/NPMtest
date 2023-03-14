@@ -8,14 +8,6 @@ class LocalStorage {
     static get() {
         return JSON.parse(localStorage.getItem('movies') ?? '[]');
     }
-
-    static edit(id) {
-        const qwe = JSON.parse(localStorage.getItem('movies'));
-        return console.log(qwe.filter((movie) => {
-            // movie.getId() = id;
-        }));
-    }
-    
 }
 
 export default LocalStorage;
