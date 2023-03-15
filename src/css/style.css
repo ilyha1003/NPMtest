@@ -21,10 +21,6 @@ button {
     position: relative;
 }
 
-.button {
-    float: right;
-}
-
 .header {
     font-size: 2.5rem;
     padding: 20px 0 40px;
@@ -69,13 +65,19 @@ button {
 }
 
 .button {
-    padding: 5px 10px;
+    float: right;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-
+.heart {
+    font-size: 20px;
+    padding: 10px;
+}
 
 li:nth-child(2n) {
-    background-color: #7c7c7c;
+    background-color: #a8a8a8;
 }
 
 .edit-field {

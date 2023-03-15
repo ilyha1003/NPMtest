@@ -62,6 +62,7 @@ class Form {
                 this.modeButton.setAttribute('data-tooltip', 'Day mode');
                 document.body.classList.add('bg-dark');
                 document.body.classList.add('text-white');
+                document.head.style
             } else {
                 this.switch.value = 0;
                 this.modeButton.classList.remove('fa-sun');
@@ -70,7 +71,6 @@ class Form {
                 document.body.classList.remove('bg-dark');
                 document.body.classList.remove('text-white');
             }
-            
         })
     }
 }

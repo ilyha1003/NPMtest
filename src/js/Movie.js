@@ -109,14 +109,17 @@ class Movie {
                 </div>
             </span>
             <span class="col-3 movie-opinion">${opinion}</span>
-            <span class="col-1 movie-favorite">${favorite ? '❤' : ''}</span>
-            <div class="col-3 buttons" role="group"></div>
+            <span class="col-1 movie-favorite">${favorite ? '<i class="fas fa-heart heart"></i>' : ''}</span>
+            <div class="col-3 buttons" role="group">
+                <i class="fas fa-trash button delete-button"></i>
+                <i class="fas fa-pen button edit-button"></i>
+            </div>
         `;
 
         li.insertAdjacentHTML('beforeend',html);
         const buttonGroup = li.querySelector('.buttons');
-        const editButton = this.createButtons(false);
-        const deleteButton = this.createButtons(true);        
+        const editButton = li.querySelector('.edit-button');
+        const deleteButton = li.querySelector('.delete-button');      
 
         buttonGroup.append(deleteButton, editButton);
 
