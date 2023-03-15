@@ -17,6 +17,10 @@ button {
     background: none;
 }
 
+.header {
+    position: relative;
+}
+
 .button {
     float: right;
 }
@@ -68,8 +72,10 @@ button {
     padding: 5px 10px;
 }
 
+
+
 li:nth-child(2n) {
-    background-color: #aaaaaa;
+    background-color: #7c7c7c;
 }
 
 .edit-field {
@@ -153,3 +159,44 @@ li:nth-child(2n) {
 .edit-field.hidden {
     display: none;
 }
+
+
+
+
+.night-mode-label {
+    font-size: 30px;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+
+.night-mode-label input[type="checkbox"] {
+    opacity: 0;
+}
+
+.moon {
+    padding: 10px;
+    cursor: pointer;
+}
+
+[data-tooltip] { 
+    position: relative; 
+} 
+
+[data-tooltip]::after { 
+    content: attr(data-tooltip);  
+    position: absolute; 
+    width: 70px; 
+    left: -10px; 
+    top: 40px;  
+    pointer-events: none; 
+    opacity: 0;  
+    transition: 1s; 
+    font-size: 15px;
+    font-family: 'Reef';
+} 
+
+[data-tooltip]:hover::after { 
+    opacity: 1;  
+    top: 50px;  
+} 

@@ -52,6 +52,26 @@ class Form {
 
     constructor() {
         this.node = document.getElementById('form');
+        this.modeButton = document.getElementById('moon');
+        this.switch = document.getElementById('night-mode-checkbox');
+        this.modeButton.addEventListener('click', () => {
+            if(this.switch.value === '0') {
+                this.switch.value = 1;
+                this.modeButton.classList.remove('fa-moon');
+                this.modeButton.classList.add('fa-sun');
+                this.modeButton.setAttribute('data-tooltip', 'Day mode');
+                document.body.classList.add('bg-dark');
+                document.body.classList.add('text-white');
+            } else {
+                this.switch.value = 0;
+                this.modeButton.classList.remove('fa-sun');
+                this.modeButton.classList.add('fa-moon');
+                this.modeButton.setAttribute('data-tooltip', 'Night mode');
+                document.body.classList.remove('bg-dark');
+                document.body.classList.remove('text-white');
+            }
+            
+        })
     }
 }
 
