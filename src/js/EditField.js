@@ -1,6 +1,4 @@
 import Alert from './Alert';
-import List from './List';
-import LocalStorage from './LocalStorage';
 
 class EditField {
     showEditField(movie) {

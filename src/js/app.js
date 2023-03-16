@@ -4,13 +4,11 @@ import Movie from './Movie';
 import List from './List';
 import LocalStorage from './LocalStorage';
 import WindowWidth from './WindowWidth';
-import EditField from './EditField';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = new Form();
     const alert = new Alert();
     const list = new List();
-    // const editField = new EditField();
 
     const width = window.matchMedia("(max-width: 995px)");
     const appWidth = new WindowWidth(width);
@@ -18,23 +16,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const onAdd = () => {
         try {
             const data = form.getInfo();
-            // console.log(data);
             const movie = new Movie(Date.now(), data);
 
             list.addMovie(movie);
-            LocalStorage.set(list.getMovies());
+            LocalStorage.setMovies(list.getMovies());
             alert.showAlert('New movie was succesfully added!');
         } catch ({ message }) {
             alert.showAlert(message, true)
         }
     }
 
-    form.setRatingValue();
+    const onSwitchCheck = (checkboxState) => { 
+        if(checkboxState === false) {
+            form.modeButton.classList.remove('fa-moon');
+            form.modeButton.classList.add('fa-sun');
+            form.modeButton.setAttribute('data-tooltip', 'Day mode');
+            document.body.classList.add('bg-dark');
+            document.body.classList.add('text-white');
+            list.node.classList.add('dark-theme');
+        } else {
+            form.modeButton.classList.remove('fa-sun');
+            form.modeButton.classList.add('fa-moon');
+            form.modeButton.setAttribute('data-tooltip', 'Night mode');
+            document.body.classList.remove('bg-dark');
+            document.body.classList.remove('text-white');
+            list.node.classList.remove('dark-theme');
+        }
+    }
+
+    applyThemeSettings = (checkboxState) => {
+        if(checkboxState === false) {
+            form.switch.checked = true;
+            onSwitchCheck(checkboxState);
+        } else {
+            onSwitchCheck(checkboxState);
+        }
+
+    }
+
+    form.modeButton.addEventListener('click', () => {
+        onSwitchCheck(form.switch.checked);
+        LocalStorage.setColorTheme();
+    })
+
+    applyThemeSettings(LocalStorage.getColorTheme());
 
     form.node.addEventListener('submit', (e) => {
-        document.querySelector('.form-control').focus();
-        
         e.preventDefault();
+        document.querySelector('.form-control').focus();
         onAdd();
     })
 })

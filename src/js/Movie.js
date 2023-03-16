@@ -16,7 +16,7 @@ class Movie {
         this.node.querySelector('#star4').value = data.star4;
         this.node.querySelector('#star5').value = data.star5;
         this.node.querySelector('.movie-opinion').innerHTML = data.opinion;
-        this.node.querySelector('.movie-favorite').innerHTML = data.favorite ? '❤' : '';
+        this.node.querySelector('.movie-favorite').innerHTML = data.favorite ? '<i class="fas fa-heart heart"></i>' : '';
 
         this.createMovieRating(this.ratingNumber(data.star1, data.star2, data.star3, data.star4, data.star5));
         
@@ -116,7 +116,7 @@ class Movie {
             </div>
         `;
 
-        li.insertAdjacentHTML('beforeend',html);
+        li.insertAdjacentHTML('beforeend', html);
         const buttonGroup = li.querySelector('.buttons');
         const editButton = li.querySelector('.edit-button');
         const deleteButton = li.querySelector('.delete-button');      
@@ -128,25 +128,6 @@ class Movie {
 
         this.node = li;
         this.createMovieRating(this.ratingNumber(star1, star2, star3, star4, star5));
-    }
-
-    createButtons(isDelete) {
-        const editIco = `<svg fill="#000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 528.899 528.899" xml:space="preserve"><g><path d="M328.883,89.125l107.59,107.589l-272.34,272.34L56.604,361.465L328.883,89.125z M518.113,63.177l-47.981-47.981
-        c-18.543-18.543-48.653-18.543-67.259,0l-45.961,45.961l107.59,107.59l53.611-53.611
-        C532.495,100.753,532.495,77.559,518.113,63.177z M0.3,512.69c-1.958,8.812,5.998,16.708,14.811,14.565l119.891-29.069
-        L27.473,390.597L0.3,512.69z"></path></g></svg>`;
-        const deleteIco = `<svg fill="#000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 41.336 41.336" xml:space="preserve"><g><path d="M36.335,5.668h-8.167V1.5c0-0.828-0.672-1.5-1.5-1.5h-12c-0.828,0-1.5,0.672-1.5,1.5v4.168H5.001c-1.104,0-2,0.896-2,2
-        s0.896,2,2,2h2.001v29.168c0,1.381,1.119,2.5,2.5,2.5h22.332c1.381,0,2.5-1.119,2.5-2.5V9.668h2.001c1.104,0,2-0.896,2-2
-        S37.438,5.668,36.335,5.668z M14.168,35.67c0,0.828-0.672,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-21c0-0.828,0.672-1.5,1.5-1.5
-        s1.5,0.672,1.5,1.5V35.67z M22.168,35.67c0,0.828-0.672,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-21c0-0.828,0.672-1.5,1.5-1.5
-        s1.5,0.672,1.5,1.5V35.67z M25.168,5.668h-9V3h9V5.668z M30.168,35.67c0,0.828-0.672,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-21
-        c0-0.828,0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5V35.67z"></path></g></svg>`;
-        const button = document.createElement('button');
-        button.setAttribute('type', 'button');
-        button.classList.add('button');
-        button.innerHTML = isDelete ? deleteIco : editIco;
-
-        return button;
     }
 
     constructor(id, data) {

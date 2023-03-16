@@ -60,6 +60,10 @@ button {
     transform: translateX(-50%);
 }
 
+.alert {
+    text-align: center;
+}
+
 .buttons {
     display: block;
 }
@@ -78,6 +82,10 @@ button {
 
 li:nth-child(2n) {
     background-color: #a8a8a8;
+}
+
+.dark-theme li:nth-child(2n) {
+    background-color: #282c30;
 }
 
 .edit-field {
@@ -106,14 +114,6 @@ li:nth-child(2n) {
 }
 
 
-
-
-
-
-.stars {
-	cursor: pointer;
-}
-
 .stars label {
     display: inline;
 }
@@ -133,7 +133,9 @@ li:nth-child(2n) {
 	margin-left: -5px;
 	font-size: 25px;
 	position: relative;
-	cursor: pointer;
+}
+.rate {
+    cursor: pointer;
 }
 
 .rate input[type="radio"], .movie-rate input[type="radio"] {
@@ -142,6 +144,8 @@ li:nth-child(2n) {
     pointer-events: all;
     width: 35px;
     height: 35px;
+}
+.rate input[type="radio"] {
     cursor: pointer;
 }
 

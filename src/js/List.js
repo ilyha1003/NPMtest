@@ -1,6 +1,7 @@
 import LocalStorage from "./LocalStorage";
 import Movie from "./Movie";
 import EditField from './EditField';
+import Alert from './Alert';
 
 class List {
     #movies = [];
@@ -13,7 +14,7 @@ class List {
     }
 
     createStorageList() {
-        const moviesList = LocalStorage.get();
+        const moviesList = LocalStorage.getMovies();
         const moviesListReversed = [];
         
         for(let i = moviesList.length - 1; i >= 0 ; i--) {
@@ -45,17 +46,24 @@ class List {
     removeMovie(id) {
         this.#movies = this.#movies.filter((movie) => movie.getId() !== id);
         this.updateInfo();
-        LocalStorage.set(this.getMovies());
+        LocalStorage.setMovies(this.getMovies());
     }
 
     constructor() {
+        this.alert = new Alert();
         this.editField = new EditField();
         this.editField.form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.editField.movie.setEditData(this.editField.outputEditData());
-            this.editField.hideEditField();
-            this.updateInfo();
-            LocalStorage.set(this.getMovies());
+            try {
+                e.preventDefault();
+                this.editField.movie.setEditData(this.editField.outputEditData());
+                this.editField.hideEditField();
+                this.updateInfo();
+                LocalStorage.setMovies(this.getMovies());
+                this.alert.showAlert('Movie was successfully saved!');
+            } catch ({ message }) {
+                this.alert.showAlert(message, true);
+            }
+            
         })
         this.node = document.getElementById('movieList');
         this.createStorageList();
