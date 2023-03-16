@@ -206,3 +206,11 @@ li:nth-child(2n) {
     opacity: 1;  
     top: 50px;  
 } 
+
+
+
+.select {
+    margin-left: auto;
+    margin-right: 0;
+    width: 200px;
+}
