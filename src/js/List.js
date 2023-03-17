@@ -6,17 +6,20 @@ import Alert from './Alert';
 class List {
     #movies = [];
 
+    clearList() {
+        this.node.innerHTML = '';
+    }
+
     updateInfo() {
         this.node.innerHTML = '';
         this.#movies.map((movie) => {
-            this.node.append(movie.node)
+            this.node.append(movie.node);
         });
     }
 
     createStorageList() {
         const moviesList = LocalStorage.getMovies();
         const moviesListReversed = [];
-        
         for(let i = moviesList.length - 1; i >= 0 ; i--) {
             moviesListReversed.push(moviesList[i]);
         }
@@ -59,7 +62,7 @@ class List {
                 this.editField.hideEditField();
                 this.updateInfo();
                 LocalStorage.setMovies(this.getMovies());
-                this.alert.showAlert('Movie was successfully saved!');
+                this.alert.showSuccessAlert('Movie was successfully saved!');
             } catch ({ message }) {
                 this.alert.showAlert(message, true);
             }

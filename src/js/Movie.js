@@ -63,6 +63,7 @@ class Movie {
                 this.movieRatingStarFilter(rating);
                 break;
         }
+        this.node.querySelector('.stars').value = rating;
     }
 
     ratingNumber(star1, star2, star3, star4, star5) {
@@ -128,12 +129,19 @@ class Movie {
 
         this.node = li;
         this.createMovieRating(this.ratingNumber(star1, star2, star3, star4, star5));
+        if(favorite === true) {
+            this.node.querySelector('.movie-favorite').value = 1;
+        } else {
+            this.node.querySelector('.movie-favorite').value = 0;
+        }
     }
 
     constructor(id, data) {
         this.setData(data);
         this.#id = id;
         this.createNode();
+        this.ratingField = this.node.querySelector('.stars');
+        this.favoriteField = this.node.querySelector('.movie-favorite');
     }
 }
 

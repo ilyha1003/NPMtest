@@ -1,5 +1,3 @@
-import Alert from './Alert';
-
 class EditField {
     showEditField(movie) {
         this.node.classList.remove('hidden');
@@ -72,7 +70,6 @@ class EditField {
     }
 
     constructor() {
-        this.alert = new Alert();
         this.node = document.getElementById('editField');
         this.form = document.getElementById('edit-form');
         this.cancelBtn = document.getElementById('edit-field-cancel');

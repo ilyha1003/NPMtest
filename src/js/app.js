@@ -66,6 +66,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     applyThemeSettings(LocalStorage.getColorTheme());
 
+    sort.node.addEventListener('change', () => {
+        switch(sort.node.value) {
+            case '0': 
+                list.updateInfo();
+                sort.sortInAdditionOrder();
+                break;
+            case '1': 
+                list.updateInfo();
+                sort.sortByRating();
+                break;
+            case '2': 
+                list.updateInfo();
+                sort.sortByFavorite();
+                break;
+            case '3': 
+                sort.sortByAlphabet();
+                break;
+        }
+    })
+
     form.node.addEventListener('submit', (e) => {
         e.preventDefault();
         document.querySelector('.form-control').focus();
