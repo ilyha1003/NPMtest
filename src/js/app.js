@@ -11,18 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const alert = new Alert();
     const list = new List();
     const sort = new Sort();
+    const sortSelect = document.querySelector('.select');
 
     const width = window.matchMedia("(max-width: 995px)");
     const appWidth = new WindowWidth(width);
 
     const onAdd = () => {
         try {
+            const list = new List();
             const data = form.getInfo();
             const movie = new Movie(Date.now(), data);
 
             list.addMovie(movie);
             LocalStorage.setMovies(list.getMovies());
             alert.showAlert('New movie was succesfully added!');
+            applySortingOnAdd();
         } catch ({ message }) {
             alert.showAlert(message, true)
         }
@@ -50,7 +53,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    applyThemeSettings = (checkboxState) => {
+    const onSelectChange = (value) => {
+        switch(value) {
+            case '0':
+                sort.sortInAdditionOrder();
+                break;
+            case '1': 
+                sort.sortByRating()
+                break;
+            case '2': 
+                sort.sortByFavorite();
+                break;
+            case '3':
+                sort.sortByAlphabet();
+                break;
+        }
+    }
+
+    const applyThemeSettings = (checkboxState) => {
         if(checkboxState === false) {
             form.switch.checked = true;
             onSwitchCheck(checkboxState);
@@ -59,31 +79,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const applySortingSettings = (value) => {
+        onSelectChange(value);
+        sortSelect.value = value;
+    }
+
+    const applySortingOnAdd = () => {
+        onSelectChange(sortSelect.value);
+    }
+
+    applyThemeSettings(LocalStorage.getColorTheme());
+    applySortingSettings(LocalStorage.getSort());
+    
     form.modeButton.addEventListener('click', () => {
         onSwitchCheck(form.switch.checked);
         LocalStorage.setColorTheme();
     })
 
-    applyThemeSettings(LocalStorage.getColorTheme());
-
     sort.node.addEventListener('change', () => {
-        switch(sort.node.value) {
-            case '0': 
-                list.updateInfo();
-                sort.sortInAdditionOrder();
-                break;
-            case '1': 
-                list.updateInfo();
-                sort.sortByRating();
-                break;
-            case '2': 
-                list.updateInfo();
-                sort.sortByFavorite();
-                break;
-            case '3': 
-                sort.sortByAlphabet();
-                break;
-        }
+        onSelectChange(sortSelect.value);
+        LocalStorage.setSort();
     })
 
     form.node.addEventListener('submit', (e) => {

@@ -2,6 +2,7 @@ import LocalStorage from "./LocalStorage";
 import Movie from "./Movie";
 import EditField from './EditField';
 import Alert from './Alert';
+import Sort from './Sort';
 
 class List {
     #movies = [];
@@ -38,6 +39,7 @@ class List {
         this.#movies.unshift(movie);
         movie.deleteBtn.addEventListener('click', () => {
             this.removeMovie(movie.getId());
+            this.chooseSortingOnAction();
         })
         movie.editBtn.addEventListener('click', () => {
             this.editField.showEditField(movie);
@@ -48,8 +50,26 @@ class List {
 
     removeMovie(id) {
         this.#movies = this.#movies.filter((movie) => movie.getId() !== id);
-        this.updateInfo();
         LocalStorage.setMovies(this.getMovies());
+        this.updateInfo();
+    }
+
+    chooseSortingOnAction() {
+        const sort = new Sort();
+        switch(document.querySelector('.select').value) {
+            case '0':
+                sort.sortInAdditionOrder();
+                break;
+            case '1': 
+                sort.sortByRating()
+                break;
+            case '2': 
+                sort.sortByFavorite();
+                break;
+            case '3':
+                sort.sortByAlphabet();
+                break;
+        }
     }
 
     constructor() {
@@ -63,6 +83,7 @@ class List {
                 this.updateInfo();
                 LocalStorage.setMovies(this.getMovies());
                 this.alert.showSuccessAlert('Movie was successfully saved!');
+                this.chooseSortingOnAction();
             } catch ({ message }) {
                 this.alert.showAlert(message, true);
             }

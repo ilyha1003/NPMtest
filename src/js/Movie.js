@@ -4,11 +4,11 @@ class Movie {
 
     setData(data) {
         this.#data = data;
+        this.title = data.title;
     };
 
     setEditData(data) {
-        this.#data = data;
-
+        this.setData(data);
         this.node.querySelector('.movie-rating').innerHTML = data.title;
         this.node.querySelector('#star1').value = data.star1;
         this.node.querySelector('#star2').value = data.star2;

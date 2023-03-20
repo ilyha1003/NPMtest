@@ -1,7 +1,6 @@
 class LocalStorage {
     static setMovies(movies) {
         const movieData = movies.map((movie) => ({ id: movie.getId(), data: movie.getData() }));
-        // console.log(movieData);
         localStorage.setItem('movies', JSON.stringify(movieData));
     }
 
@@ -16,6 +15,15 @@ class LocalStorage {
 
     static getColorTheme() {
         return JSON.parse(localStorage.getItem('colorTheme') ?? '[]');
+    }
+
+    static setSort() {
+        const sortSelect = document.querySelector('.select');
+        localStorage.setItem('selectValue', JSON.stringify(sortSelect.value));
+    }
+
+    static getSort() {
+        return JSON.parse(localStorage.getItem('selectValue') ?? '[]');
     }
 }
 
