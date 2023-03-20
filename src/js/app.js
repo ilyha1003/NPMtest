@@ -3,7 +3,6 @@ import Alert from './Alert';
 import Movie from './Movie';
 import List from './List';
 import LocalStorage from './LocalStorage';
-import WindowWidth from './WindowWidth';
 import Sort from './Sort';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,9 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const list = new List();
     const sort = new Sort();
     const sortSelect = document.querySelector('.select');
-
-    const width = window.matchMedia("(max-width: 995px)");
-    const appWidth = new WindowWidth(width);
 
     const onAdd = () => {
         try {

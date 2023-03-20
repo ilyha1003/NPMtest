@@ -18,8 +18,7 @@ class Movie {
         this.node.querySelector('.movie-opinion').innerHTML = data.opinion;
         this.node.querySelector('.movie-favorite').innerHTML = data.favorite ? '<i class="fas fa-heart heart"></i>' : '';
 
-        this.createMovieRating(this.ratingNumber(data.star1, data.star2, data.star3, data.star4, data.star5));
-        
+        this.createMovieRating(this.ratingNumber(data.star1, data.star2, data.star3, data.star4, data.star5)); 
     }
 
     getData() {

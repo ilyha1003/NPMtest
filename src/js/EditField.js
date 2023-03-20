@@ -34,7 +34,6 @@ class EditField {
         this.form[8].checked = favorite;
 
         const rating = movie.ratingNumber(star1, star2, star3, star4, star5);
-
         this.showEditRating(rating);
     }
 

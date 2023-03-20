@@ -86,8 +86,7 @@ class List {
                 this.chooseSortingOnAction();
             } catch ({ message }) {
                 this.alert.showAlert(message, true);
-            }
-            
+            }  
         })
         this.node = document.getElementById('movieList');
         this.createStorageList();
